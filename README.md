@@ -1,15 +1,16 @@
 # Facebook Wall
 
-Next.js app configured with TypeScript, Tailwind CSS, Supabase SSR, and shadcn/ui.
+A responsive, 2008-inspired wall built with Next.js, Tailwind CSS, and Supabase. The app has no user login or session flow.
 
-## Getting started
+## Run locally
 
-1. Install dependencies with `npm install`.
-2. Copy `.env.example` to `.env.local` and set your Supabase project URL and publishable key.
-3. Start the development server with `npm run dev`.
+Make sure `.env.local` contains `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, then run:
 
-Open [http://localhost:3000](http://localhost:3000) to view the app.
+```bash
+npm install
+npm run dev
+```
 
-Supabase clients are available from `@/lib/supabase/client` in browser code and `@/lib/supabase/server` in server code. The root `proxy.ts` refreshes Supabase auth cookies for Next.js 16.
+The home page reads and publishes messages in the existing `public.posts` table. Supabase Realtime must include `public.posts` in the `supabase_realtime` publication for live inserts to appear without refreshing.
 
-Use the shadcn CLI to add UI components, for example `npx shadcn@latest add card`.
+The profile image is a placeholder for now. Add your image under `public` when it is ready.

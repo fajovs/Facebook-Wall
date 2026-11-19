@@ -1,9 +1,25 @@
-import { createBrowserClient } from "@supabase/ssr"
+"use client"
+
+import { createClient as createSupabaseClient } from "@supabase/supabase-js"
+import type { SupabaseClient } from "@supabase/supabase-js"
 
 import { getSupabasePublicEnv } from "@/lib/supabase/env"
+import type { Database } from "@/lib/supabase/database.types"
 
-export function createClient() {
-  const { url, publishableKey } = getSupabasePublicEnv()
+let supabaseClient: SupabaseClient<Database> | undefined
 
-  return createBrowserClient(url, publishableKey)
+export function getSupabaseClient() {
+  if (!supabaseClient) {
+    const { url, publishableKey } = getSupabasePublicEnv()
+
+    supabaseClient = createSupabaseClient<Database>(url, publishableKey, {
+      auth: {
+        autoRefreshToken: false,
+        detectSessionInUrl: false,
+        persistSession: false,
+      },
+    })
+  }
+
+  return supabaseClient
 }
