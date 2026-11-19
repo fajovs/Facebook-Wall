@@ -144,7 +144,7 @@ export function MessageComposer() {
     <form className="wall-composer" onSubmit={handleSubmit}>
       <div className="wall-composer-heading">
         <h2>Write a post</h2>
-        <p>Share a quick update on Greg&apos;s wall.</p>
+        <p>Share a quick update on Jovaney&apos;s wall.</p>
       </div>
       <label className="sr-only" htmlFor="wall-message">
         Write a message

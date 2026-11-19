@@ -185,7 +185,10 @@
 }
 
 .wall-profile-placeholder {
+  position: relative;
   display: flex;
+  width: 100%;
+  height: auto;
   aspect-ratio: 0.88;
   max-height: 32rem;
   flex-direction: column;
@@ -198,6 +201,10 @@
   background: linear-gradient(145deg, #eef3fa, #e5ebf4);
   color: #929baa;
   font-size: 0.85rem;
+}
+
+.wall-profile-placeholder img {
+  object-fit: cover;
 }
 
 .wall-profile-name {
@@ -502,6 +509,7 @@
 }
 
 .wall-post-avatar {
+  position: relative;
   display: grid;
   width: 2.6rem;
   height: 2.6rem;
@@ -511,6 +519,11 @@
   border-radius: 999px;
   background: #edf3fc;
   color: #5576a8;
+  overflow: hidden;
+}
+
+.wall-post-avatar img {
+  object-fit: cover;
 }
 
 .wall-post-author {
@@ -554,16 +567,17 @@
 
 @media (max-width: 720px) {
   .wall-shell {
-    padding: 0.5rem 0.5rem 1rem;
+    padding: 0.5rem 0.5rem max(1rem, env(safe-area-inset-bottom));
   }
 
   .wall-topbar {
-    min-height: 3.25rem;
-    padding-inline: 0.85rem;
+    min-height: 3.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.65rem;
   }
 
   .wall-topbar-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .wall-layout {
@@ -576,16 +590,19 @@
     display: grid;
     grid-template-columns: minmax(6.5rem, 34%) minmax(0, 1fr);
     align-items: center;
-    column-gap: 1rem;
-    padding: 1rem;
+    column-gap: 0.9rem;
+    padding: 0.9rem;
     border-right: 0;
     border-bottom: 1px solid #e1e5eb;
   }
 
   .wall-profile-placeholder {
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: auto;
     aspect-ratio: 1;
     max-height: none;
+    border-radius: 0.75rem;
   }
 
   .wall-profile-placeholder span {
@@ -595,7 +612,7 @@
   .wall-profile-name {
     align-self: end;
     margin-top: 0;
-    font-size: clamp(1.15rem, 5vw, 1.5rem);
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
     overflow-wrap: anywhere;
   }
 
@@ -606,7 +623,9 @@
 
   .wall-info-card {
     grid-column: 1 / -1;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e8edf4;
   }
 
   .wall-info-list {
@@ -615,24 +634,62 @@
   }
 
   .wall-content {
-    padding: 1rem 0.75rem 1.5rem;
+    padding: 0.85rem 0.75rem 1.5rem;
+  }
+
+  .wall-composer {
+    gap: 0.7rem;
+    padding: 1rem;
+    border-radius: 0.7rem;
   }
 
   .wall-composer-input {
-    min-height: 7rem;
-    font-size: 1rem;
+    min-height: 8rem;
+    padding: 0.85rem;
+    font-size: 16px;
+    resize: vertical;
   }
 
   .wall-feed {
-    margin-top: 1.5rem;
+    margin-top: 1.35rem;
+  }
+
+  .wall-feed-heading {
+    align-items: flex-start;
+  }
+
+  .wall-live-status {
+    max-width: 100%;
+    font-size: 0.75rem;
+  }
+
+  .wall-post {
+    padding: 1.1rem 0 1.2rem;
+  }
+
+  .wall-post-body {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .wall-post-images {
+    margin-top: 0.8rem;
+  }
+
+  .wall-post-image {
+    width: 100%;
+    max-height: 70vh;
+    border-radius: 0.45rem;
+    object-fit: contain;
+  }
+
+  .wall-share-button,
+  .wall-attach-button {
+    min-height: 2.9rem;
   }
 }
 
 @media (max-width: 420px) {
-  .wall-info-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .wall-live-status {
     justify-content: flex-start;
   }
@@ -651,6 +708,29 @@
 
   .wall-composer-actions .wall-share-button {
     flex: 1 1 auto;
+  }
+
+  .wall-composer-footer {
+    align-items: stretch;
+  }
+
+  .wall-character-count {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .wall-info-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wall-composer-actions {
+    flex-direction: column;
+  }
+
+  .wall-attach-button,
+  .wall-composer-actions .wall-share-button {
+    width: 100%;
   }
 }
 

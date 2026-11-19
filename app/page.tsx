@@ -1,29 +1,21 @@
-import { UserRound } from "lucide-react"
-
 import { MessageComposer } from "@/components/wall/message-composer"
 import { PostFeed } from "@/components/wall/post-feed"
+import { ProfilePhoto } from "@/components/wall/profile-photo"
 
 export default function Home() {
   return (
     <main className="wall-page">
       <div className="wall-shell">
         <header className="wall-topbar">
-          <span className="wall-topbar-title">wall</span>
+          <span className="wall-topbar-title">Wall</span>
         </header>
 
         <div className="wall-layout">
           <aside className="wall-sidebar" aria-label="Profile information">
-            <div
-              className="wall-profile-placeholder"
-              role="img"
-              aria-label="Profile photo placeholder"
-            >
-              <UserRound aria-hidden="true" className="size-24 stroke-[1.25] sm:size-32" />
-              <span>Profile photo coming soon</span>
-            </div>
+            <ProfilePhoto />
 
             <h1 id="profile-name" className="wall-profile-name">
-              Greg Wientjes
+              Jovaney Agda
             </h1>
             <p className="wall-profile-label">wall</p>
 
@@ -32,11 +24,11 @@ export default function Home() {
               <dl className="wall-info-list">
                 <div>
                   <dt>Networks</dt>
-                  <dd>Stanford Alum</dd>
+                  <dd>Eastern Samar State University</dd>
                 </div>
                 <div>
                   <dt>Current City</dt>
-                  <dd>Palo Alto, CA</dd>
+                  <dd>City of Borongan, Eastern Samar</dd>
                 </div>
               </dl>
             </section>

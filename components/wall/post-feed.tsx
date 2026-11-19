@@ -45,7 +45,7 @@ export function PostFeed() {
 
       {!loading && !error && posts.length === 0 && (
         <div className="wall-feed-placeholder" role="status">
-          No posts yet. Be the first to write on Greg&apos;s wall.
+          No posts yet. Be the first to write on Jovaney&apos;s wall.
         </div>
       )}
 
