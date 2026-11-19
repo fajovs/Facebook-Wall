@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { UserRound } from "lucide-react"
 
+import { ProfileAvatar } from "@/components/wall/profile-avatar"
 import type { WallPost } from "@/lib/supabase/database.types"
 
 function formatTimestamp(value: string | null) {
@@ -36,11 +36,9 @@ export function PostCard({ post }: { post: WallPost }) {
     <article className="wall-post">
       <div className="wall-post-heading">
         <div className="wall-post-person">
-          <span className="wall-post-avatar" aria-hidden="true">
-            <UserRound className="size-5" />
-          </span>
+          <ProfileAvatar />
           <div>
-            <p className="wall-post-author">Greg Wientjes</p>
+          <p className="wall-post-author">Jovaney Agda</p>
             <time
               className="wall-post-time"
               dateTime={post.created_at ?? undefined}
@@ -60,7 +58,7 @@ export function PostCard({ post }: { post: WallPost }) {
             <Image
               key={image.id}
               src={image.image_url}
-              alt="Photo shared on Greg's wall"
+              alt="Photo shared on Jovaney's wall"
               width={1200}
               height={900}
               unoptimized
